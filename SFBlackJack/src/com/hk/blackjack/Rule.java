@@ -3,11 +3,16 @@ package com.hk.blackjack;
 public class Rule {
 	public static void getWinner(Gamer gm, Dealer dl) {
 		//둘다 21을 넘은 경우 > 비겼다
+		System.out.println("--게이머--");
+		gm.openCards();
+		System.out.println("--딜러--");
+		dl.openCards();
+		
 		final int SCORE = 21;
 		int gSum = gm.getSum();
 		int dSum = dl.getSum();
 		
-		if(gSum > SCORE && dSum > SCORE || gSum == dSum) {
+		if((gSum > SCORE && dSum > SCORE) || gSum == dSum) {
 			System.out.println("비김");
 			
 		} else {			
