@@ -25,20 +25,36 @@ public class CardDeck {
 				Card c = new Card(shapes[i], z);
 				cards[idx++] = c;
 			}
-		}
-		
+		}		
 		shuffleCards();
 	}
 	
 	
 	private void shuffleCards() {
-		
+		for(int i=0; i<cards.length; i++) {
+			int rIdx = (int)(Math.random() * cards.length);			
+			Card temp = cards[i];
+			cards[i] = cards[rIdx];
+			cards[rIdx] = temp;
+		}
 	}
 	
 	public void showCards() {
 		for(Card c : cards) {
 			System.out.println(c);
 		}
+	}
+	
+	//카드 주소값 하나를 외부에 준다.	
+	public Card pick() {
+		for(int i=0; i<cards.length; i++) {
+			if(cards[i] != null) {
+				Card c = cards[i];
+				cards[i] = null;
+				return c;
+			}
+		}
+		return null;
 	}
 }
 
