@@ -6,6 +6,8 @@ public class Dealer extends Gamer {
 	//카드덱한데 카드한장을 빼와서
 	//나의 카드배열에 넣는다.
 	public void needMoreCard(CardDeck cd) {
-		
+		if(sum <= 16) {
+			addCard(cd.pick());
+		}
 	}
 }
